@@ -567,47 +567,62 @@ void conversion_number(){
     print_result(result);
 }
 
+void script(const string unittype){
+        if (unittype == "1"){
+            Table_units(unittype);
+            conversion_measure();
+        }
+        if (unittype == "2"){
+            Table_units(unittype);
+            conversion_temperature();
+        }
+        if (unittype == "3"){
+            Table_units(unittype);
+            conversion_area();
+        }
+        if (unittype == "4"){
+            Table_units(unittype);
+            conversion_volume();
+        }
+        if (unittype == "5"){
+            Table_units(unittype);
+            conversion_weight();
+        }
+        if (unittype == "6"){
+            Table_units(unittype);
+            conversion_time();
+        }
+        if (unittype == "7"){
+            Table_units(unittype);
+            conversion_number();
+        }
+}
+
 int main(){
-    Table_start();
-    string unittype, name_unittype;
+    while (true){
+        cout << u8"\033[2J\033[1;1H"; 
+        Table_start();
+        string unittype, name_unittype;
 
-    cout << "✤ Enter the UNIT TYPE code: ";
-    cin >> unittype;
-    cout << "▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼" << endl;
-    name_unittype = get_unit_type(unittype);
-    cout << endl << "+--------------------------------+" << endl;
-    cout << "|  ✪        " << setw(18) << name_unittype << "✪  |";
+        cout << "✤ Enter the UNIT TYPE code: ";
+        cin >> unittype;
+        cout << u8"\033[2J\033[1;1H"; 
+        name_unittype = get_unit_type(unittype);
+        cout << "+--------------------------------+" << endl;
+        cout << "|  ✪        " << setw(18) << name_unittype << "✪  |";
 
-    if (unittype == "1"){
-        Table_units(unittype);
-        conversion_measure();
-    }
-    if (unittype == "2"){
-        Table_units(unittype);
-        conversion_temperature();
-    }
-    if (unittype == "3"){
-        Table_units(unittype);
-        conversion_area();
-    }
-    if (unittype == "4"){
-        Table_units(unittype);
-        conversion_volume();
-    }
-    if (unittype == "5"){
-        Table_units(unittype);
-        conversion_weight();
-    }
-    if (unittype == "6"){
-        Table_units(unittype);
-        conversion_time();
-    }
-    if (unittype == "7"){
-        Table_units(unittype);
-        conversion_number();
+        script(unittype);
+
+        string again;
+        cout << endl << "TRY AGAIN? (y/n): ";
+        cin >> again;
+        if (again == "n"){
+            cout << u8"\033[2J\033[1;1H";
+            cout << "Program execution completed" << endl;
+            break;
+        }
     }
     return 0;
 }
-
 
 
