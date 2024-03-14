@@ -27,7 +27,7 @@ To build the program code using **makefile**:
 
 1. Clone the repository:
 ```bash
-$ git clone https://github.com/ricardoyang00/univerter
+$ git clone git@github.com:ricardoyang00/univerter.git
 $ cd univerter/
 ```
 
